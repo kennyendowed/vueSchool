@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
       state:"default",
       m1: "Spearhead Mall",
       message:"Number one shooping mall",
-      newitem:"",
+      newitem:" ",
       items:[
         // "Home",
         // "About",
@@ -16,11 +16,16 @@ document.addEventListener('DOMContentLoaded', function () {
       ]
 
     },
+
     methods:{
       saveItem: function(){
 this.items.push(this.newitem);
 this.newitem=" ";
-      }
+},
+changeState: function(newState){
+this.state=newState;
+this.newitem=" ";
+}
     }
   })
 })

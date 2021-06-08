@@ -24,6 +24,7 @@
 
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/js/main.js"></script>
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/master.css">
@@ -62,6 +63,12 @@
               <li v-if="items.length == 0"><a href="#contact"><i class="bx bx-envelope"></i> Menu Unvailable ....</a></li>
 
             </ul>
+            <ul>
+              <li>
+              <button v-if="state ==='default'" class="btn btn-lg btn-primary" @click="changeState('edit')">Add</button>
+                <!-- <button v-else-if class="btn btn-lg btn-primary" @click="changeState('delete')">Delete</button></li> -->
+              <button v-else class="btn btn-lg btn-primary" @click="changeState('default')">Cancle</button></li>
+            </ul>
           </nav><!-- .nav-menu -->
           <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
@@ -79,17 +86,25 @@
             </div>
 
             <div class="row">
+
               <div v-if="state == 'edit'" class="php-email-form col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
 
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="name">Your Name</label>
 
-                      <input type="text" name="name" v-model="newitem" class="form-control"  @keyup.enter="saveItem"/>
+                      <input type="text" name="name" v-model="newitem" class="form-control"  />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="name">Your Name</label>
+
+                      <input type="text" name="name" v-model="lastname" class="form-control" />
                     </div>
 
                   </div>
-                  <div class="text-center"> <button class="btn btn-lg btn-primary" @click="saveItem">Submit</button></div>
+                  <div class="text-center">
+
+                    <button class="btn btn-lg btn-primary" @keyup.enter="saveItem" :disabled="newitem.length ===0" @click="saveItem">Submit</button></div>
               </div>
 
 
@@ -110,10 +125,7 @@
       &copy; Copyright <strong><span>iPortfolio</span></strong>
     </div>
     <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+
       Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
   </div>
@@ -122,9 +134,7 @@
 
 
 <!-- Vendor JS Files -->
-<script src="assets/js/vue.min.js"></script>
-  <script src="assets/js/main.js"></script>
-
+<script src="assets/js/vue.js"></script>
 <script src="assets/js/appvue.js">
 
 </script>
