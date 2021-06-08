@@ -1,11 +1,26 @@
 // when life is settled, load up the fun stuff
 document.addEventListener('DOMContentLoaded', function () {
   new Vue({
-    el: '#applist',
+    el: '#app',
     // define data - initial display text
     data: {
-      m1: "You got to let me know",
-      message:"first class with vue"
+      state:"default",
+      m1: "Spearhead Mall",
+      message:"Number one shooping mall",
+      newitem:"",
+      items:[
+        // "Home",
+        // "About",
+        // "Services",
+        // "Contact"
+      ]
+
+    },
+    methods:{
+      saveItem: function(){
+this.items.push(this.newitem);
+this.newitem=" ";
+      }
     }
   })
 })
