@@ -1,8 +1,46 @@
+//global component registration type
+  Vue.component('counter',{
+    template:'#click-counter-template',
+    data(){
+      return {
+        count:0,
+
+      }
+    }
+
+  })
+//local component registration type
+let PlanComponent = {
+  template:'#plan-template',
+  // props:['name','label','clase'],
+  data(){
+    return {
+      plans:[
+        {
+        label:"Location",
+        name:"A108 Adam Street, New York, NY 535022",
+        class:"address"
+      },
+      {
+      label:"email",
+      name:"info@example.com",
+      class:"email"
+    }
+    ]
+    }
+  }
+
+
+}
+
 // when life is settled, load up the fun stuff
 // document.addEventListener('DOMContentLoaded', function () {
   new Vue({
     el: '#app',
-    // define data - initial display text
+    components:{
+      "plan-info":PlanComponent
+    },
+  //  define data - initial display text
     data: {
       state:"default",
       m1: "Spearhead Mall",
@@ -19,6 +57,10 @@
 
     },
 
+    // components:{
+    //   "plan-info":PlanComponent
+    // },
+
     methods:{
       saveItem: function(){
 this.items.push(this.name);
@@ -32,40 +74,9 @@ this.name="";
     }
   })
 
-//global component registration type
-  Vue.component('counter',{
-    template:'#click-counter-template',
-    data(){
-      return {
-        count:0,
-
-      }
-    }
-
-  }),
-//local component registration type
-  Vue.component('plan-info',{
-    template:'#plan-template',
-    // props:['name','label','clase'],
-    data(){
-      return {
-        plans:[
-          {
-          label:"Location",
-          name:"A108 Adam Street, New York, NY 535022",
-          class:"address"
-        },
-        {
-        label:"email",
-        name:"info@example.com",
-        class:"email"
-      }
-      ]
-      }
-    }
 
 
-  })
+
 // })
 // //global component registration type
 //   Vue.component('counter',{
@@ -79,7 +90,7 @@ this.name="";
 //
 //   })
 // //local component registration type
-//   Vue.component('plan-info',{
+//   let PlanComponent = {
 // // let PlanComponent = {
 //     template:'#plan-template',
 //      // props:['name','label','clase'],
@@ -101,4 +112,4 @@ this.name="";
 //     }
 //
 //
-//   })
+//   }
